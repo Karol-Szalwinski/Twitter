@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Jeżeli wszystkie powyższe dane zwalidowały się poprawnie tworzymy nowego
     //usera, logujemy go i przekierowywujemy na główną.
-    if (empty($registerError)) {
+    if (empty($errors)) {
         echo "Dane logowania są poprawne<br>";
         $newUser = new User;
         $newUser->setUsername($userName)->setEmail($userEmail)

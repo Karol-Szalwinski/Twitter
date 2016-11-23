@@ -75,14 +75,7 @@ class User {
         return false;
     }
 
-    /**
-     * 
-     * @param mysqli $connection
-     * @param type $id
-     * @return \User
-     */
-    static public
-            function loadUserById(mysqli $connection, $id) {
+    static public function loadUserById(mysqli $connection, $id) {
         $sql = "SELECT * FROM User WHERE id=$id";
         $result = $connection->query($sql);
         if ($result == true && $result->num_rows == 1) {
@@ -98,8 +91,7 @@ class User {
         return false;
     }
 
-    static public
-            function loadAllUsers(mysqli $connection) {
+    static public function loadAllUsers(mysqli $connection) {
         $sql = "SELECT * FROM User";
         $ret = [];
         $result = $connection->query($sql);
@@ -117,8 +109,7 @@ class User {
         return $ret;
     }
 
-    static public
-            function emailIsAvailable(mysqli $connection, $email) {
+    static public function emailIsAvailable(mysqli $connection, $email) {
         $sql = "SELECT * FROM User WHERE `email`='$email'";
         $result = $connection->query($sql);
         if ($result == true && $result->num_rows == 0) {

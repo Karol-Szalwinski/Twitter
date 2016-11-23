@@ -67,8 +67,7 @@ class Message {
         return $this->creationDate;
     }
 
-    static public
-            function loadMessageById(mysqli $connection, $id) {
+    static public function loadMessageById(mysqli $connection, $id) {
         $sql = "SELECT * FROM Message WHERE id=$id ORDER BY creation_date DESC";
         $result = $connection->query($sql);
         if ($result == true && $result->num_rows == 1) {
@@ -85,8 +84,7 @@ class Message {
         return null;
     }
 
-    static public
-            function loadMessagesBySenderId(mysqli $connection, $userId) {
+    static public function loadMessagesBySenderId(mysqli $connection, $userId) {
         $sql = "SELECT * FROM Message WHERE sender_id=$userId ORDER BY creation_date DESC";
         $ret = [];
         $result = $connection->query($sql);
@@ -105,8 +103,7 @@ class Message {
         return $ret;
     }
 
-    static public
-            function loadMessagesByRecipientId(mysqli $connection, $userId) {
+    static public function loadMessagesByRecipientId(mysqli $connection, $userId) {
         $sql = "SELECT * FROM Message WHERE recipient_id=$userId ORDER BY creation_date DESC";
         $ret = [];
         $result = $connection->query($sql);

@@ -3,9 +3,10 @@
 </div>
 
 <?php
-//Zamykam połączenia z bazą
-// akurat stopkę mam na tych podstronach gdzie łączę się z SQL
-$conn->close();
-$conn = null;
+//Zamykam połączenia z bazą tam gdzie zostało otworzone
+if(isset($conn)) {
+    $conn->close();
+    $conn = null;
+}
 
 

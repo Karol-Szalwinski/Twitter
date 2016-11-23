@@ -52,8 +52,7 @@ class Comment {
         return $this->creationDate;
     }
 
-    static public
-            function loadCommentById(mysqli $connection, $id) {
+    static public function loadCommentById(mysqli $connection, $id) {
         $sql = "SELECT * FROM Comment WHERE id=$id ORDER BY creation_date DESC";
         $result = $connection->query($sql);
         if ($result == true && $result->num_rows == 1) {
@@ -69,8 +68,7 @@ class Comment {
         return null;
     }
 
-    static public
-            function loadCommentByTweetId(mysqli $connection, $tweetId) {
+    static public function loadCommentByTweetId(mysqli $connection, $tweetId) {
         $sql = "SELECT * FROM Comment WHERE tweet_id=$tweetId ORDER BY creation_date DESC";
         $ret = [];
         $result = $connection->query($sql);
@@ -88,8 +86,7 @@ class Comment {
         return $ret;
     }
 
-    static public
-            function loadAllComments(mysqli $connection) {
+    static public function loadAllComments(mysqli $connection) {
         $sql = "SELECT * FROM Comment ORDER BY creation_date DESC";
         $ret = [];
         $result = $connection->query($sql);
